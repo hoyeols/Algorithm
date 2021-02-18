@@ -3,7 +3,7 @@ import sys
 input = sys.stdin.readline
 
 score = int(input())
-if (score >= 90 and score <= 100): #(90<=score<=100)도 가능
+if (90<=score<=100): #(90<=score<=100)도 가능
     print('A')
 elif (score >= 80 and score < 90):
     print('B')
