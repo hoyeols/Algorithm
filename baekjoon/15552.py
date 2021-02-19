@@ -36,10 +36,10 @@ Python을 사용하고 있다면, input 대신 sys.stdin.readline을 사용할 �
 import sys
 input = sys.stdin.readline
 
-T = int(input())
-AB = []
-for i in range(T):
-    AB.append(map(int, input().split()))
+#T = int(input())
+AB = [1,2,3,4]#[1, 1, 12, 34]
+'''for i in range(T):
+    AB.append(map(int, input().split()))'''
 
 for (A, B) in AB:
     print(A + B)

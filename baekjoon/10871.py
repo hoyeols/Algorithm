@@ -22,7 +22,7 @@ N, X = map(int, input().split())
 Xlist = list(map(int, input().split()))
 
 def Bigger(x):
-    return x < X
+    return x < 5
 
-for num in list(filter(Bigger, Xlist)):
+for num in int(filter(Bigger, Xlist)):
     print(num, end=' ')
