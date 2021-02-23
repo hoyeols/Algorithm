@@ -33,7 +33,19 @@ N = int(input())
 count = 0
 for i in range(N):
     word = input().strip()
-    if list(word) == sorted(word, key=word.find): #정렬 find가 적용되는 char 순서대로 정렬
+    if list(word) == sorted(word, key=word.find): 
         count += 1
 
 print(count)
+
+'''T = int(input())
+cnt = T
+for i in range(T):
+	word = input()
+	for j in range(1, len(word)):
+		#앞 글자가 처음 등장하는 인덱스보다 뒷 글자가 처음 등장하는 인덱스가 더 작으면, 뒷 글자는 앞서 이미 등장한 글자가 됩니다.
+		if word.find(word[j-1]) > word.find(word[j]):
+			cnt -= 1
+			break
+print(cnt)
+'''

@@ -35,7 +35,7 @@ nljj
 c=c=
 예제 출력 4 
 2'''
-import sys
+'''import sys
 input = sys.stdin.readline
 
 croatia = input().strip()
@@ -44,4 +44,6 @@ alphabet = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 for alpha in alphabet:
     croatia = croatia.replace(alpha, '>')
 
-print(len(croatia))
+print(len(croatia))'''
+
+print(['1','2','3']-['1'])

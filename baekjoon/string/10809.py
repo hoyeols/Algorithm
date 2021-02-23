@@ -25,3 +25,9 @@ for alpha in 'abcdefghijklmnopqrstuvwxyz':
         print(S.index(alpha), end=' ')
     else:
         print(-1, end=' ')
+
+'''import sys
+input = sys.stdin.readline
+S = input().rstrip()
+for a in 'abcdefghijklmnopqrstuvwxyz':
+	print(S.find(a),end=" ")'''
