@@ -28,3 +28,11 @@ D(T1,T2) = |x1-x2| + |y1-y2|
 예제 출력 3 
 5541.769441
 3528.000000'''
+import sys
+import math
+input = sys.stdin.readline
+
+R = int(input())
+
+print("{:.6f}".format(math.pi * R ** 2)) #유클리드 기하학 파이알제곱
+print("{:.6f}".format(R * R * 1 / 2 * 4)) #택시 기하학 : 밑변과 높이가 R인 직각삼각형 4개의 합: R * R * 1/2 * 4
