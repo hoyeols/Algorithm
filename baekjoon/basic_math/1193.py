@@ -39,3 +39,26 @@ if line % 2 == 0:
     denominator = -X + 1
     molecules = line - denominator + 1
 print("{}/{}".format(molecules, denominator))
+
+"""
+stage	x
+1		1     		1/1		  			2
+2		2,3   		1/2 2/1     		3
+3		4,5,6   	3/1,2/2,1/3			4
+4		7,8,9,10	1/4,2/3,3/2,4/1 	5
+"""
+
+'''X = int(input())
+#key_x : 첫번째 X
+stage, key_X = 1, 1
+#각 stage의 첫번째 X가됨.
+while key_X + stage <= X:
+    key_X += stage
+    stage += 1
+​
+step = X - key_X
+x, y = step + 1, stage - step
+if stage % 2 == 0:
+    print('{}/{}'.format(x, y))
+else:
+    print('{}/{}'.format(y, x))'''
