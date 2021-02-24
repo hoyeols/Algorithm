@@ -1,14 +1,14 @@
-# 학습에 참고한 사이트와 간단한 내용 
+##### 학습에 참고한 사이트와 간단한 내용 
 * https://waaan.tistory.com/13 : GitHub 레포지토리로 git push할 때 에러 해결 방법
 * https://leedakyeong.tistory.com/entry/%EB%B0%B1%EC%A4%80-3053%EB%B2%88-%ED%83%9D%EC%8B%9C-%EA%B8%B0%ED%95%98%ED%95%99-in-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%89%BD%EA%B2%8C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0 : 택시기하학
 * https://dojang.io/mod/page/view.php?id=2300 : 문자열 서식지정자와 포맨팅 사용하기
 
-#### 오늘 발견한 문제 
+## 오늘 발견한 문제 
 1. Git push error: failed to push some refs to 'git@github.com:hoyeols/CodingTest.git 오류문제
 2. 택시기하학 원의 넓이 구하기
 3. 프린트시 소숫점 포매팅으로 지정하기
 
-#### 해결 방안 
+## 해결 방안 
 1.  Git push 명령어를 실행할때 에러가 떠서 되지 않았습니다. 이유는 github에서 레포지토리를 생성할때 README.md파일을 생성했기 때문입니다. 그래서 git pull명령어로 다시 원격레포지토리에 업로드하고 다시 푸쉬를 해줬습니다.
 ```
 git pull origin master
@@ -26,9 +26,9 @@ print("{:.6f}".format(R * R * 1 / 2 * 4)) #택시 기하학 : 밑변과 높이�
 
 ```
 
-## 학습 내용에 대한 개인적인 총평 
+### 학습 내용에 대한 개인적인 총평 
 - 기본수학 2 에서는 좌표를 다루는 문제가 주를 이뤘고 기하학쪽으로 생각을 많이 고려해야 하는 문제들이였습니다. 문제를 해석하면 쉽게 접근할 수 있었지만 보이는대로 구현하려면 풀지 못하는 문제들이였습니다. 또한 소인수 분해 또한 반복문을 한번만 사용해도 해결할 수 있었을텐데 중첩 반복문을 사용해서 시간이 오래나오는것을 개선해야겠다고 느꼈습니다.
 
-## 다음 학습 계획 
+#### 다음 학습 계획 
 1. Python으로 백준 단계별로 풀어보기
 *      재귀
