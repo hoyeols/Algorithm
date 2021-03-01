@@ -24,9 +24,37 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-sorted_list = []
+num_lst = []
 for i in range(N):
-    sorted_list.append(int(input()))
+    num_lst.append(int(input()))
 
-sorted_list.sort()
-print(sorted_list)
+'''
+#sorted()와 sort() 사용해보기 68ms
+num_list.sort()  #num_list = sorted(num_list)'''
+
+#버블정렬 168ms
+def bubble(x):
+    for size in range(len(x) - 1, 0, -1):
+        for i in range(size):
+            if x[i] > x[i + 1]:
+                x[i], x[i + 1] = x[i + 1], x[i]
+#bubble(num_lst)
+
+#선택정렬 148ms
+def selection(x):
+    for i in range(len(x) - 1):
+        for j in range(i + 1, len(x)):
+            if x[i] > x[j]:
+                x[i], x[j] = x[j], x[i]
+#selection(num_lst)
+
+#삽입정렬 140ms
+def insertion(x):
+    for i in range(1, len(x)):
+        for j in range(i):
+            if x[i] < x[j]:
+                x[i], x[j] = x[j], x[i] 
+insertion(num_lst)
+
+for i in num_lst:
+    print(i)
