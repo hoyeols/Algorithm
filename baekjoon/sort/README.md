@@ -9,59 +9,6 @@
 
 ## 해결 방안 
 1.
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Name</th>
-      <th style="text-align: center">Best</th>
-      <th style="text-align: center">Worst</th>
-      <th style="text-align: center">Stable</th>
-      <th style="text-align: center">Memory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">버블정렬</td>
-      <td style="text-align: center">n</td>
-      <td style="text-align: center">n^2</td>
-      <td style="text-align: center">True</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">선택정렬</td>
-      <td style="text-align: center">n^2</td>
-      <td style="text-align: center">n^2</td>
-      <td style="text-align: center">False</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">삽입정렬</td>
-      <td style="text-align: center">n</td>
-      <td style="text-align: center">n^2</td>
-      <td style="text-align: center">True</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">셸정렬</td>
-      <td style="text-align: center">nlog n</td>
-      <td style="text-align: center">(best) nlog ^2 n</td>
-      <td style="text-align: center">False</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">병합정렬</td>
-      <td style="text-align: center">nlog n</td>
-      <td style="text-align: center">nlog n</td>
-      <td style="text-align: center">True</td>
-      <td style="text-align: center">n</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">퀵정렬</td>
-      <td style="text-align: center">nlog n</td>
-      <td style="text-align: center">nlog n ~ n^2</td>
-      <td style="text-align: center">False</td>
-      <td style="text-align: center">log n ~ n</td>
-    </tr>  
   - 버블정렬: 이웃한 두 값을 비교하여 정렬합니다. 최댓값이 맨 오른쪽으로 옮겨지며, 데이터가 잘 정렬되어 있을경우에 O(n)으로 데이터의 정렬여부를 파악하기 위해 사용하면 좋습니다. 만약 역순으로 정렬되어있는경우에는 (n - 1) + (n - 2) +…+1 번의 비교가 이루어지므로 O(n^2)입니다.
 ``` python
 def swap(x, i, j):
@@ -202,3 +149,56 @@ def quickSort(x, pivotMethod=pivotFirst):
 #### 다음 학습 계획 
 1. Python으로 백준 단계별로 풀어보기
 *      백트랙킹
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Name</th>
+      <th style="text-align: center">Best</th>
+      <th style="text-align: center">Worst</th>
+      <th style="text-align: center">Stable</th>
+      <th style="text-align: center">Memory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">버블정렬</td>
+      <td style="text-align: center">n</td>
+      <td style="text-align: center">n^2</td>
+      <td style="text-align: center">True</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">선택정렬</td>
+      <td style="text-align: center">n^2</td>
+      <td style="text-align: center">n^2</td>
+      <td style="text-align: center">False</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">삽입정렬</td>
+      <td style="text-align: center">n</td>
+      <td style="text-align: center">n^2</td>
+      <td style="text-align: center">True</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">셸정렬</td>
+      <td style="text-align: center">nlog n</td>
+      <td style="text-align: center">(best) nlog ^2 n</td>
+      <td style="text-align: center">False</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">병합정렬</td>
+      <td style="text-align: center">nlog n</td>
+      <td style="text-align: center">nlog n</td>
+      <td style="text-align: center">True</td>
+      <td style="text-align: center">n</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">퀵정렬</td>
+      <td style="text-align: center">nlog n</td>
+      <td style="text-align: center">nlog n ~ n^2</td>
+      <td style="text-align: center">False</td>
+      <td style="text-align: center">log n ~ n</td>
+    </tr>  
