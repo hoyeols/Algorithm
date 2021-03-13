@@ -1,4 +1,5 @@
-#Stack
+# Stack
+
 ##### 학습에 참고한 사이트와 간단한 내용 
 * https://ooeunz.tistory.com/7 : [python] Stack 사용하기
 
