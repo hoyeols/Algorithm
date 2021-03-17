@@ -67,7 +67,7 @@ for _ in range(T):
     n = int(input())
     x = input().rstrip()[1:-1].split(',')
 
-    if n == 0 or p.count('D') > len(x):
+    if n == 0 and 'D' in p or p.count('D') > len(x):
         print("error")
         continue
     p.replace('RR', '')
