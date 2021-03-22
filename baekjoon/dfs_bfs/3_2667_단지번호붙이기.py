@@ -28,3 +28,70 @@
 7
 8
 9'''
+'''import sys
+input = sys.stdin.readline
+
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+N = int(input())
+data = []
+cnt = []
+for _ in range(N):
+    data.append(list(input().rstrip()))
+
+def bfs(i, j):
+    queue = [[i, j]]
+    data[i][j] = '0'
+    count = 1
+    while queue:
+        a, b = queue[0][0], queue[0][1]
+        del queue[0]
+        for k in range(4):
+            x = b + dx[k]
+            y = a + dy[k]
+            if 0 <= x < N and 0 <= y < N and data[y][x] == '1':
+                data[y][x] = '0'
+                queue.append([y, x])
+                count += 1
+    cnt.append(count)
+
+for i in range(N):
+    for j in range(N):
+        if data[i][j] == '1':
+            bfs(i, j)
+cnt.sort()
+print(len(cnt))
+for i in cnt:
+    print(i)'''
+
+import sys
+input = sys.stdin.readline
+
+dx = [-1, 0, 1, 0]
+dy = [0, -1, 0, 1]
+data = []
+cnt = []
+N = int(input())
+for _ in range(N):
+    data.append(list(input().rstrip()))
+
+def dfs(i, j):
+    global count
+    data[i][j] = '0'
+    count += 1
+    for k in range(4):
+        x = i + dx[k]
+        y = j + dy[k]
+        if 0 <= x < N and 0 <= y < N and data[x][y] == '1':
+            dfs(x, y)
+
+for i in range(N):
+    for j in range(N):
+        if data[i][j] == '1':
+            count = 0
+            dfs(i, j)
+            cnt.append(count)
+cnt.sort()
+print(len(cnt))
+for i in cnt:
+    print(i)
