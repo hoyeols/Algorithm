@@ -22,6 +22,8 @@
 3
 7
 INF'''
+
+#다익스트라
 import sys
 import heapq
 input = sys.stdin.readline
