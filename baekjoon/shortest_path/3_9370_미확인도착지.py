@@ -83,6 +83,11 @@ for _ in range(T):
 	#목적지 후보들
 	for _ in range(t):
 		destination = int(input())
+		#출발지점->도착지점의 최단거리와 무조건 들려야하는 곳의 최단거리와 같다면 저장
 		if s_dist[destination] == min(s_dist[g] + g_dist[h] + h_dist[destination], s_dist[h] + h_dist[g] + g_dist[destination]):
 			result.append(s_dist.index(s_dist[destination]))
-	print(result)
+	#정렬한것에서 , 제거하고 출력
+	#print(str(sorted(result))[1:-1].replace(',',''))
+	result.sort()
+	for i in result:
+		print(i, end=' ')
