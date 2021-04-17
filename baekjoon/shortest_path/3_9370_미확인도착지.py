@@ -48,22 +48,8 @@ input = sys.stdin.readline
 INF = (1e9)
 
 T = int(input())
-for _ in range(T):
-	n, m, t = map(int, input().split())	#교차로(정점), 도로(간선), 목적지(후보지)
-	s, g, h = map(int, input().split())	#출발지, g와 h에 사이에 있는 교차로 도로를(간선)을 지나감
-	graph = [[] for _ in range(n + 1)] #그래프 초기화
-	destination = [] #후보지 초기화
-	#그래프 양방향
-	for _ in range(m):
-		a, b, d = map(int, input().split())
-		graph[a].append((b, d))
-		graph[b].append((a, d))
-	#목적지 후보들
-	for _ in range(t):
-		destination.append(int(input()))
-	dijkstra(s, n)
 
-def dijkstra(start, n):
+def dijkstra(start):
 	q = []
 	distance = [INF] * (n + 1)
 	heapq.heappush(q, (start, 0))
@@ -77,5 +63,26 @@ def dijkstra(start, n):
 			cost = dist + i[1]
 			if cost < distance[i[0]]:
 				distance[i[0]] = cost
-				heapq.heappush(q, (i[0], dist))
+				heapq.heappush(q, (i[0], cost))
 	return distance
+
+for _ in range(T):
+	n, m, t = map(int, input().split())	#교차로(정점), 도로(간선), 목적지(후보지)
+	s, g, h = map(int, input().split())	#출발지, g와 h에 사이에 있는 교차로 도로를(간선)을 지나감
+	graph = [[] for _ in range(n + 1)] #그래프 초기화
+	result = []
+	#그래프 양방향
+	for _ in range(m):
+		a, b, d = map(int, input().split())
+		graph[a].append((b, d))
+		graph[b].append((a, d))
+	#각 경우의 수 고려하여 거리 다 구하기
+	s_dist = dijkstra(s)
+	g_dist = dijkstra(g)
+	h_dist = dijkstra(h)
+	#목적지 후보들
+	for _ in range(t):
+		destination = int(input())
+		if s_dist[destination] == min(s_dist[g] + g_dist[h] + h_dist[destination], s_dist[h] + h_dist[g] + g_dist[destination]):
+			result.append(s_dist.index(s_dist[destination]))
+	print(result)
