@@ -25,10 +25,13 @@
 예제 출력 1
 2
 Poor KCM'''
+
+
+#다익스트라 + 다이나믹 프로그래밍은 파이썬으로 타임오버 자바나 씨로는 다익스트라만으로도 패스
 import heapq
 import sys
 input = sys.stdin.readline
-INF = (1e9)
+INF = float('inf')
 
 def dijkstra(airport, clock, N, M):
 	q = []
@@ -65,3 +68,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
