@@ -28,7 +28,7 @@ Poor KCM'''
 
 
 #다익스트라 + 다이나믹 프로그래밍은 파이썬으로 타임오버 자바나 씨로는 다익스트라만으로도 패스
-import heapq
+'''import heapq
 import sys
 input = sys.stdin.readline
 INF = float('inf')
@@ -68,4 +68,41 @@ def main():
 
 if __name__ == "__main__":
 	main()
+'''
+#pypy3로 패스 python3는 시간초과
+import heapq
+import sys
+input = sys.stdin.readline
+INF = (1e9)
 
+def dijkstra(start):
+	q = []
+	heapq.heappush(q, (start, 0, 0))	#현재지점, 비용, 소요시간
+	clock[start][0] = 0	#비용까지 고려
+
+	for cost in range(M + 1):	#비용
+		for here in range(1, N + 1):	#현재공항
+			if clock[here][cost] == INF:
+				continue
+			distance = clock[here][cost]
+			for next_here, next_cost, next_time in airport[here]:
+				if cost + next_cost > M:
+					continue
+				clock[next_here][cost + next_cost] = min(clock[next_here][cost + next_cost], distance + next_time)
+	return clock
+
+T = int(input())
+
+for _ in range(T):
+	N, M, K = map(int, input().split())	#N = 공항의수, M = 총지원비용, K = 티켓정보의수
+	airport = [[] for _ in range(N + 1)]	#공항이 그래프
+	clock = [[INF for _ in range(M + 1)] for _ in range(N + 1)]		#시간이 거리행렬인데 한정점마다 비용까지 고려해야하므로 이중리스트로 표현
+	for _ in range(K):
+		u, v, c, d = map(int, input().split())	#u = 출발공항, v = 도착공항, c = 비용, d = 소요시간
+		airport[u].append((v, c, d))	#그래프는 방향 그래프
+
+	LA_clock = dijkstra(1)
+	if min(clock[N]) == INF:
+		print("Poor KCM")
+	else:
+		print(min(clock[N]))
