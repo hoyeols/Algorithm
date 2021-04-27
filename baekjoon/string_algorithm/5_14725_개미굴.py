@@ -105,3 +105,31 @@ for _ in range(N):
 
 root = trie.head
 print_trie(root, 0)
+
+'''
+#trie를 안쓴 다른풀이
+import sys
+input = sys.stdin.readline
+
+ant = []
+N = int(input())
+for _ in range(N):
+	foods = input().split()
+	K = int(foods.pop(0))
+	ant.append(foods)
+
+ant.sort()
+for i in range(N):	#[['a', 'b', 'c', 'd'], ['a', 'c'], ['b', 'a']]
+	if i == 0:
+		for j in range(len(ant[i])):
+			print('--' * j + ant[i][j])
+	else:
+		count = -1
+		for j in range(len(ant[i])):
+			if len(ant[i - 1]) <= j or ant[i - 1][j] != ant[i][j]: #전거보다 깊이가 깊거나 전거와 루트가 같이 않다면 멈추고 처음부터 출력
+				break
+			else:	#아니라면 j 부터 출력
+				count = j
+		for j in range(count + 1, len(ant[i])):
+			print('--' * j + ant[i][j])
+'''
