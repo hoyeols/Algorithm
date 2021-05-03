@@ -34,12 +34,22 @@ def solution(n, arr1, arr2):
 	answer = []
 	for i in range(n):
 		bin_str = bin(arr1[i] | arr2[i])[2:]	#bin() = ob이진수 ex)3 -> ob11 그래서 [2:]로 ob지워줌
-		if (6 - len(bin_str) != 0):
+		if (6 - len(bin_str) != 0):	#만약 n개만큼 이진수가 안나오면 0을 채워줌
 			bin_str = '0' * (n - len(bin_str)) + bin_str
 		bin_str = bin_str.replace("1", "#").replace("0", " ")
 		answer.append(bin_str)
 	return answer
-
+'''#다른풀이
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2): #zip을 이용해 하나씩 가져옴
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')	#rjust(오른쪽정렬해서 n크기에서 나머지만큼 문자를채움), ljust(왼쪽정렬해서 n크기에서 나머지만큼 문자를채움), zfill(0을 왼쪽에 채움)
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
+'''
 n = 5
 arr1 = [9, 20, 28, 18, 11]
 arr2 = [30, 1, 21, 17, 28]
