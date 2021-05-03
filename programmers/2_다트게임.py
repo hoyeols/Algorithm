@@ -36,10 +36,9 @@ Single(S), Double(D), Triple(T)은 점수마다 하나씩 존재한다.
 5	1D#2S*3S	5	12 * (-1) * 2 + 21 * 2 + 31
 6	1T2D3D#	-4	13 + 22 + 32 * (-1)
 7	1D2S3T*	59	12 + 21 * 2 + 33 * 2'''
-def solution(dartResult):
+'''def solution(dartResult):
 	answer = 0
 	total = 0
-
 	bonus = {'S' : 1, 'D' : 2, 'T' : 3}
 	option = {'*' : 2, '#' : -1}
 	dartResult = dartResult.replace('10', 'K')
@@ -59,7 +58,25 @@ def solution(dartResult):
 				total += prev
 			answer *= option[dart]
 
-	return total + answer
+	return total + answer'''
+
+#다른풀이 : 정규표현식 이용하기
+import re	#re모듈 : re.compile을 이용하여 정규표현식을 컴파일해 결과 리턴
+
+def solution(dartResult):
+	bonus = {'S' : 1, 'D' : 2, 'T' : 3}
+	option = {'*' : 2, '#' : -1, '' : 1}	#'' : 정규표현식 ?때문에 0번 사용되면 ''가 나옴
+
+	p = re.compile('(\d+)([SDT])([*#]?)')	#\d : 0-9숫자와 매치, + : 최소 1번 이상 반복, [] : []사이의 문자들과 매치, ? : 0~1번 사용되면 매치
+	dart = p.findall(dartResult)	#findall : 매치되는 모든 문자열을 리스트로 리턴, finditer() : 반복 가능한 객체로 리턴
+	#match(): 문자열 처음부터 조사, search(): 문자열 전체를 검색하여 조사
+	for i in range(len(dart)):
+		if dart[i][2] == '*' and i > 0:
+			dart[i - 1] *= 2
+		dart[i] = int(dart[i][0]) ** bonus[dart[i][1]] * option[dart[i][2]]
+
+	answer = sum(dart)
+	return (answer)
 
 print(solution('1S2D*3T'))
 print(solution('1D2S#10S'))
@@ -68,3 +85,4 @@ print(solution('1S*2T*3S'))
 print(solution('1D#2S*3S'))
 print(solution('1T2D3D#'))
 print(solution('1D2S3T*'))
+
