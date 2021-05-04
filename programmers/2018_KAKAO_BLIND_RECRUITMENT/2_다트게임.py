@@ -85,4 +85,3 @@ print(solution('1S*2T*3S'))
 print(solution('1D#2S*3S'))
 print(solution('1T2D3D#'))
 print(solution('1D2S3T*'))
-
