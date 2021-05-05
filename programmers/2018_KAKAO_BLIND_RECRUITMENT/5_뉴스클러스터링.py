@@ -39,7 +39,7 @@ FRANCE	french	16384
 handshake	shake hands	65536
 aa1+aa2	AAAA12	43690
 E=M*C^2	e=m*c^2	65536'''
-
+'''
 def solution(str1, str2):
     #두칸씩 쪼갠 값이 모두 문자이면 소문자로 저장
     s1 = [str1[i:i + 2].lower() for i in range(len(str1) - 1) if str1[i:i + 2].isalpha()]   #-1을 하는 이유: 마지막원소를하면 범위 초과
@@ -54,6 +54,25 @@ def solution(str1, str2):
     for element in set(s1 + s2):    #중복을 제외하고 원소들의 개수를 각각 구함
         hap += max(s1.count(element), s2.count(element))    #ex) s1={aa, aa} s2={aa, aa, aa} s1 U s2 = {aa, aa, aa}
         gyo += min(s1.count(element), s2.count(element))    #원소가 둘다 있을때마다 +1
+    return int(gyo / hap * 65536)
+'''
+import re
+
+def solution(str1, str2):
+    # 두칸씩 쪼갠 값이 모두 문자이면 str1, str2에 append
+    # [a-zA-Z] : 알파벳 모두, + : 최소한번이상 반복, ^ : 반대의미, []: 한글자, findall(pattern, string), [^a-zA-Z]+ : 알파벳이 아닌것
+    s1 = [str1[i:i+2].lower() for i in range(0, len(str1)-1) if not re.findall('[^a-zA-Z]+', str1[i:i+2])] #알파벳 패턴으로 찾으면 알파벳이 한개라도 있으면 나오므로 안됨
+    s2 = [str2[i:i+2].lower() for i in range(0, len(str2)-1) if not re.findall('[^a-zA-Z]+', str2[i:i+2])]
+    # 합집합과 교집합 계산
+    intersection = set(s1) & set(s2)
+    union = set(s1) | set(s2)
+    # 합집합이 0이면 65536 출력
+    if len(union) == 0 :
+        return 65536
+    # 교집합하고 합집합의 counter를 따로 계산
+    gyo = sum([min(s1.count(gyo), s2.count(gyo)) for gyo in intersection])
+    hap = sum([max(s1.count(hap), s2.count(hap)) for hap in union])
+
     return int(gyo / hap * 65536)
 
 str1, str2 = 'FRANCE', 'french'
